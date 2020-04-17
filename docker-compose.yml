@@ -13,5 +13,5 @@ services:
 
 networks:
   skill-up-app-network:
-    driver: bridge
+    external: true
 
