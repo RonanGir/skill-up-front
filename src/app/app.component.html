@@ -1,4 +1,9 @@
 <button (click)="onTestBack()">Tester lien vers backend</button>
 <p>{{ response }}</p>
+<button (click)="onGetUsers()">Tester lien vers bdd</button>
+<ul *ngFor="let user of users">
+    <li>{{user.username}}</li>
+</ul>
 <button (click)="onReset()">reset</button>
+
 <router-outlet></router-outlet>

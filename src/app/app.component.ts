@@ -11,13 +11,14 @@ export class AppComponent {
   title = 'skill-up-front';
   apiUrl = environment.apiUrl;
   response: String = '';
+  users: any[];
 
   constructor(private http: HttpClient) {
-    
   }
 
   onReset() {
     this.response = '';
+    this.users = [];
   }
   
   onTestBack() {
@@ -30,4 +31,14 @@ export class AppComponent {
       }
     )
   }
+
+
+  onGetUsers() {
+    this.http.get(this.apiUrl + '/users').subscribe(
+      (users: any[]) => {
+        this.users = users;
+      }
+    );
+  }
+
 }
