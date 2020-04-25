@@ -1,9 +1,10 @@
-<button (click)="onTestBack()">Tester lien vers backend</button>
-<p>{{ response }}</p>
-<button (click)="onGetUsers()">Tester lien vers bdd</button>
+<button (click)="onGetUsers()">get users</button>
 <ul *ngFor="let user of users">
     <li>{{user.username}}</li>
 </ul>
+<div *ngIf=" users != null && users.length > 0">
+    <button (click)="onGetUserBoard(users[0])">get {{users[0].username}}'s dashboard</button>
+    <p *ngIf=" dashboard != null">This dashboard is owned by {{ dashboard.user.username}}</p>
+</div>
 <button (click)="onReset()">reset</button>
-
 <router-outlet></router-outlet>
