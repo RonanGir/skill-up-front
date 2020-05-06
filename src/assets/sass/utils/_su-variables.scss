@@ -1,0 +1,31 @@
+//============================
+// variables
+//============================
+
+// Fonts
+$font-primary:      'Space Mono';
+$font-secondary:    'Montserrat';
+
+
+// Alternate Colors
+$gold		    : rgb(234, 170, 0);
+$purple		  : rgb(149, 149, 210);
+$blue		    : rgb(7, 114, 206);
+$lightblue	: rgb(65, 182, 230);
+$green		  : rgb(100, 167, 11);
+$red		    : rgb(218, 41, 28);
+$black		  : rgb(0, 0, 0);
+$white		  : rgb(255, 255, 255);
+
+
+// Color Variations Array
+$prefix: color;
+$color-list: (
+	'gold' $prefix $gold,
+	'purple' $prefix $purple,
+	'blue' $prefix $blue,
+	'lightblue' $prefix $lightblue,
+	'green' $prefix $green,
+	'red' $prefix $red,
+	'white' $prefix $white
+);

@@ -1,4 +1,4 @@
-<button (click)="onGetUsers()">get users</button>
+<button class="button" (click)="onGetUsers()">get users</button>
 <ul *ngFor="let user of users">
     <li>{{user.username}}</li>
 </ul>
@@ -7,4 +7,6 @@
     <p *ngIf=" dashboard != null">This dashboard is owned by {{ dashboard.user.username}}</p>
 </div>
 <button (click)="onReset()">reset</button>
+<h1>Bonjour le monde</h1>
+<p>zfqsghjklm etryhuji fghjk</p>
 <router-outlet></router-outlet>
