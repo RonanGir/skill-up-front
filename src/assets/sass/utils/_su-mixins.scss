@@ -1,35 +1,48 @@
 // ------------------------------
 //  BUTTON MIXIN
 // ------------------------------
-@mixin button($button-color: $red, $button-type: '', $button-border: '', $button-size: '') {
+@mixin button($button-color: $black, $button-type: '', $button-border: '', $button-size: '') {
 	// Standard Button Styles
-	@include border-radius;
-	@include transition;
-	display: inline-block;
-	border: 2px solid $button-color;
-	padding: 10px 30px 8px;
+	border-radius: $buttons-border-radius;
+	transition: $buttons-transition;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+	border: 1px solid $button-color;
+	padding: 10px 30px;
 	color: $button-color;
 	text-decoration: none;
-	text-transform: uppercase;
-	font-weight: bold;
+  font-family: $font-secondary;
+  font-weight: 700;
+  min-width: 160px;
+  min-height: 20px;
+  letter-spacing: 2px;
+  white-space: normal;
+
+
 	// Button Hover Styles
-	&:hover {
+  &:hover,
+  &:focus {
 		border-color: $black;
 		color: $black;
-	}
+  }
+
 	// Foreach Loop
 	// Using the Color Variations in _variables.scss
-	@each $i in $color-list {
-		$alt-color: nth($i, 3);
-		&.#{nth($i, 2)}-#{nth($i, 1)} {
-			color: $alt-color;
-			border-color: $alt-color;
-			&:hover {
-				border-color: $black;
-				color: $black;
-			}
-		}
-	}
+	@each $name, $color-list in $buttons-mode-colors {
+    $bgcolor: nth($color-list, 1);
+    $font-color: nth($color-list, 2);
+
+    &--#{$name} {
+      background-color: $bgcolor;
+      color: $font-color;
+    }
+  }
+
+
+
+
+
 
 	// Button Size (small or normal (or no value) )
 	@if $button-size == small {
@@ -90,16 +103,3 @@
 	}
 }
 
-// ------------------------------
-//  BORDER RADIUS (BUTTONS)
-// ------------------------------
-@mixin border-radius {
-    border-radius: 50%;
-};
-
-// ------------------------------
-//  ANIMATION (BUTTONS)
-// ------------------------------
-@mixin transition {
-    transition: .3s ease-in-out;
-}

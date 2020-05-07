@@ -8,24 +8,40 @@ $font-secondary:    'Montserrat';
 
 
 // Alternate Colors
-$gold		    : rgb(234, 170, 0);
-$purple		  : rgb(149, 149, 210);
-$blue		    : rgb(7, 114, 206);
-$lightblue	: rgb(65, 182, 230);
-$green		  : rgb(100, 167, 11);
-$red		    : rgb(218, 41, 28);
-$black		  : rgb(0, 0, 0);
-$white		  : rgb(255, 255, 255);
+$light-blue		    : #C9E2EF;
+$dark-blue	    : #2673B8;
+$light-red		    : #F1B7B9;
+$dark-red	      : #EB4B33;
+$green		                : rgb(100, 167, 11);
+$red		                  : rgb(218, 41, 28);
+$black		                : rgb(0, 0, 0);
+$white		                : rgb(255, 255, 255);
 
 
 // Color Variations Array
 $prefix: color;
 $color-list: (
-	'gold' $prefix $gold,
-	'purple' $prefix $purple,
-	'blue' $prefix $blue,
-	'lightblue' $prefix $lightblue,
+	'light-blue' $prefix $light-blue,
+	'dark-blue' $prefix $dark-blue,
+	'light-red' $prefix $light-red,
+	'dark-red' $prefix $dark-red,
 	'green' $prefix $green,
-	'red' $prefix $red,
+  'red' $prefix $red,
+  'black' $prefix $black,
 	'white' $prefix $white
 );
+
+// Theme Map Variations
+$buttons-mode-colors: (
+  primary-light: ($light-blue, $dark-blue),
+  primary-dark: ($dark-blue, $light-blue),
+  secondary-light: ($light-red, $dark-red),
+  secondary-dark: ($dark-red, $light-red),
+);
+
+
+
+
+// Buttons Variables
+$buttons-border-radius: 500px;
+$buttons-transition: .3s ease-in-out;
