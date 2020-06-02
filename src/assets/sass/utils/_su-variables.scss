@@ -9,14 +9,14 @@ $font-secondary:    'Montserrat';
 
 // Alternate Colors
 $light-blue		    : #C9E2EF;
-$dark-blue	    : #2673B8;
+$dark-blue	      : #2673B8;
 $light-red		    : #F1B7B9;
-$dark-red	      : #EB4B33;
-$green		                : rgb(100, 167, 11);
-$red		                  : rgb(218, 41, 28);
-$black		                : rgb(0, 0, 0);
-$white		                : rgb(255, 255, 255);
-
+$dark-red	        : #EB4B33;
+$green		        : #96CA53;
+$red		          : #DA291C;
+$black		        : #000000;
+$white		        : #ffffff;
+$transparent      : #ffffff00;
 
 // Color Variations Array
 $prefix: color;
@@ -28,18 +28,43 @@ $color-list: (
 	'green' $prefix $green,
   'red' $prefix $red,
   'black' $prefix $black,
-	'white' $prefix $white
+  'white' $prefix $white,
+  'transparent' $prefix $transparent
 );
+
+// Themes Variations Array
+$themes: (
+  
+);
+
+
+
 
 // Theme Map Variations
-$buttons-mode-colors: (
-  primary-light: ($light-blue, $dark-blue),
-  primary-dark: ($dark-blue, $light-blue),
-  secondary-light: ($light-red, $dark-red),
-  secondary-dark: ($dark-red, $light-red),
-);
+$buttons-type: (
+  // *key-name of the button: (1st value: bg-color, 2nd value: font-color)
+  
+  /*test
+  primary-default:          ('bgcolor' $black, 'fontcolor' $white),
+  primary-default--hover:   ('bgcolor' $dark-blue, 'fontcolor' $white),
+  primary-outline:          ('bgcolor' $transparent, 'fontcolor' $black),
+  primary-outline--hover:   ('bgcolor' $black, 'fontcolor' $white),
+  secondary-default:        ('bgcolor' $white, 'fontcolor'$black),
+  secondary-default--hover: ('bgcolor' $dark-red, 'fontcolor' $white),
+  secondary-outline:        ('bgcolor' $transparent, 'fontcolor'$white),
+  secondary-outline--hover: ('bgcolor' $white, 'fontcolor' $black)
+  */
+  
+  primary-default:          ($black, $white),
+  primary-default--hover:   ($dark-blue, $white),
+  primary-outline:          ($transparent, $black),
+  primary-outline--hover:   ($black, $white),
+  secondary-default:        ($white, $black),
+  secondary-default--hover: ($dark-red, $white),
+  secondary-outline:        ($transparent, $white),
+  secondary-outline--hover: ($white, $black)
 
-
+  );
 
 
 // Buttons Variables
