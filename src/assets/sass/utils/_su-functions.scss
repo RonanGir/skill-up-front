@@ -1,0 +1,76 @@
+// ------------------------------
+//  BUTTON functions
+// ------------------------------
+
+/* function 
+ * to get the next key in the same map 
+ */
+@function map-get-next($map, $key, $fallback: false, $return: value ) {
+    // Check if map is valid
+    @if type-of($map) == map {
+        // Check if key exists in map
+        @if map-has-key($buttons-type, $key) {
+            // Init index counter variable
+            $i: 0;
+            // Init key index
+            $key-index: false;
+            // Traverse map for key
+            @each $map-key, $map-values in $map{
+                // Update index
+                $i: $i + 1;
+                // If map key found, set key index
+                @if $map-key == $key {
+                    $key-index: $i;
+                }
+                
+                // If next index return next value or key based on $return
+                @if $i == $key-index + 1 {
+                    @if $return == key {
+                        @return $map-key;
+                    } @else {
+                        @return $map-values;
+                    }
+                }
+                // If last entry return false
+                @if $i == length($map) {
+                    @return $fallback;
+                }
+            }
+            @warn 'No next map item for key #{$key}';
+            @return $fallback;
+        }
+        @warn 'No valid key #{$key} in map';
+        @return $fallback;
+    }
+    @warn 'No valid map';
+    @return $fallback;
+}
+
+/* function 
+ * to split the result string into to value in a list
+ */
+
+//  @function split-str($string, $separator) {
+//     // empty array/list
+//     $split-arr: ();
+//     // first index of separator in string
+//     $index: str-index($string,  $separator);
+
+//     // loop through string
+//     @while $index != null {
+//         // get the substring from the first character to the separator
+//         $item: str-slice($string, 1, $index - 1);
+//         // push item to array
+//         $split-arr: append($split-arr, $item);
+//         // remove item and separator from string
+//         $string: str-slice($string, $index + 1);
+//         // find new index of separator
+//         $index : str-index($string, $separator);
+//     }
+//     // add the remaining string to list (the last item)
+//     $split-arr: append($split-arr, $string);
+
+//     @return $split-arr;
+//  }
+ 
+
