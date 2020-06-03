@@ -6,7 +6,6 @@
 $font-primary:      'Space Mono';
 $font-secondary:    'Montserrat';
 
-
 // Alternate Colors
 $light-blue		    : #C9E2EF;
 $dark-blue	      : #2673B8;
@@ -34,27 +33,12 @@ $color-list: (
 
 // Themes Variations Array
 $themes: (
-  
+  // TODO: Definate different theme
 );
-
-
-
 
 // Theme Map Variations
 $buttons-type: (
-  // *key-name of the button: (1st value: bg-color, 2nd value: font-color)
-  
-  /*test
-  primary-default:          ('bgcolor' $black, 'fontcolor' $white),
-  primary-default--hover:   ('bgcolor' $dark-blue, 'fontcolor' $white),
-  primary-outline:          ('bgcolor' $transparent, 'fontcolor' $black),
-  primary-outline--hover:   ('bgcolor' $black, 'fontcolor' $white),
-  secondary-default:        ('bgcolor' $white, 'fontcolor'$black),
-  secondary-default--hover: ('bgcolor' $dark-red, 'fontcolor' $white),
-  secondary-outline:        ('bgcolor' $transparent, 'fontcolor'$white),
-  secondary-outline--hover: ('bgcolor' $white, 'fontcolor' $black)
-  */
-  
+  //key-name of the button: (1st value: bg-color, 2nd value: font-color)
   primary-default:          ($black, $white),
   primary-default--hover:   ($dark-blue, $white),
   primary-outline:          ($transparent, $black),
@@ -63,9 +47,7 @@ $buttons-type: (
   secondary-default--hover: ($dark-red, $white),
   secondary-outline:        ($transparent, $white),
   secondary-outline--hover: ($white, $black)
-
   );
-
 
 // Buttons Variables
 $buttons-border-radius: 500px;

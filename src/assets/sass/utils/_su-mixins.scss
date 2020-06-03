@@ -2,18 +2,18 @@
 //  BUTTON MIXIN
 // ------------------------------
 @mixin btn {
-	// Foreach Loop
-	// Using the Color Variations in _variables.scss
+	// For each Loop
+	// Using the color variations in _su-variables.scss
 	@each $class-key-name, $color-of-keys-value in $buttons-type {
 		$bgcolor: nth($color-of-keys-value, 1);
-		$fontcolor: nth($color-of-keys-value, 2);
+    $fontcolor: nth($color-of-keys-value, 2);
 
 		//use the class from the key-name
 		&__#{$class-key-name} {
 			background-color: $bgcolor;
 			color: $fontcolor;
 
-			// general Button Styles
+			// Basic button styles
 			border-radius: $buttons-border-radius;
 			transition: $buttons-transition;
 			display: inline-block;
@@ -31,24 +31,13 @@
 
 			&:hover,
 			&:focus {
-				// @each $result in map-get-next($buttons-type, $class-key-name, $fallback: false, $return: value ){
-				// 	$list : split-str($result, ',');
-				// 	$r-1  : nth($list, 1);
-				// 	$r-2  : nth($list, 2);
-
-				// 	background-color: $r-1;
-				// 	color: $r-2;
-				// }
-
-				// Calling the first value of the function map-get-next's result
-				// this function using the same class name whith &--hover's values
-				background-color: nth( map-get-next($buttons-type, $class-key-name, $fallback: false, $return: value ), 1);
-				//color: str-index(map-get-next($buttons-type, $class-key-name, $fallback: false, $return: value ), $substring: "s");
-				color: quote(map-get-next($buttons-type, $class-key-name, $fallback: false, $return: value ));
+				/* Calling the function map-get-next's result
+        * this function using the same class name whith &--hover's values
+        */
+        background-color: map-get-next--first($buttons-type, $class-key-name, $fallback: false, $return: value );
+        color: map-get-next--second($buttons-type, $class-key-name, $fallback: false, $return: value );
 			}
 		}
-
-		
 	}
 
 }
