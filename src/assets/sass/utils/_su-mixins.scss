@@ -1,17 +1,23 @@
 // ------------------------------
-//  BUTTON MIXIN
+//  Mixin for buttons
 // ------------------------------
-@mixin btn {
-	// For each Loop
-	// Using the color variations in _su-variables.scss
+@mixin button {
+	// For each button:
 	@each $class-key-name, $color-of-keys-value in $buttons-type {
-		$bgcolor: nth($color-of-keys-value, 1);
-    $fontcolor: nth($color-of-keys-value, 2);
+   
+		// Declare the variables to match the key values
+		$bgcolor: nth($color-of-keys-value, 1); //nth(), is a SASS function to get the read the value from its index in the key array
+		$fontcolor: nth($color-of-keys-value, 2);
+		$bordercolor: nth($color-of-keys-value, 3);
+		$bgcolor-hover: nth($color-of-keys-value, 4);
+		$fontcolor-hover: nth($color-of-keys-value, 5);
+		$bordercolor-hover: nth($color-of-keys-value, 6);
 
-		//use the class from the key-name
+		//use the class from the map key-name to match to class name into the index
 		&__#{$class-key-name} {
 			background-color: $bgcolor;
 			color: $fontcolor;
+			border: 0.2rem solid $bordercolor;
 
 			// Basic button styles
 			border-radius: $buttons-border-radius;
@@ -19,26 +25,21 @@
 			display: inline-block;
 			vertical-align: middle;
 			text-align: center;
-			border: 1px solid $transparent;
-			margin: 0 20px 10px 0;
-			padding: 10px 30px;
+			margin: 0 2rem 1rem 0;
+			padding: 1rem 3rem;
 			text-decoration: none;
 			font-family: $font-secondary;
-			font-weight: 700;
-			min-width: 160px;
-			min-height: 20px;
-			letter-spacing: 2px;
+			font-weight: 600;
+			min-width: 16rem;
+			min-height: 2rem;
+			letter-spacing: .2rem;
 
 			&:hover,
 			&:focus {
-				/* Calling the function map-get-next's result
-        * this function using the same class name whith &--hover's values
-        */
-        background-color: map-get-next--first($buttons-type, $class-key-name, $fallback: false, $return: value );
-        color: map-get-next--second($buttons-type, $class-key-name, $fallback: false, $return: value );
+				background-color: $bgcolor-hover;
+				color: $fontcolor-hover;
+				border-color: $bordercolor-hover;
 			}
 		}
 	}
-
 }
-
