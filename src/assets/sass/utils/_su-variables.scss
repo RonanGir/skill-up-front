@@ -1,3 +1,4 @@
+
 //============================
 // variables
 //============================
@@ -6,26 +7,44 @@
 $font-primary:      'Space Mono';
 $font-secondary:    'Montserrat';
 
+// Basic accessibility
+$font-size-basic:     1.6rem;
+$line-height-basic:   1.5;
+$letter-spacing:      .192rem;
+$word-spacing:        .256rem;
 
 // Alternate Colors
-$gold		    : rgb(234, 170, 0);
-$purple		  : rgb(149, 149, 210);
-$blue		    : rgb(7, 114, 206);
-$lightblue	: rgb(65, 182, 230);
-$green		  : rgb(100, 167, 11);
-$red		    : rgb(218, 41, 28);
-$black		  : rgb(0, 0, 0);
-$white		  : rgb(255, 255, 255);
+$light-blue                      : #C9E2EF;
+$dark-blue                       : #2673B8;
+$light-red                       : #F1B7B9;
+$dark-red                        : #EB4B33;
+$green                           : #96CA53;
+$red                             : #DA291C;
+$black                           : #000000;
+$white                           : #ffffff;
+$transparent                     : #ffffff00;
 
+// Buttons Variables
+$buttons-border-radius:   50rem;
+$buttons-transition:      .3s ease-in-out;
 
-// Color Variations Array
-$prefix: color;
-$color-list: (
-	'gold' $prefix $gold,
-	'purple' $prefix $purple,
-	'blue' $prefix $blue,
-	'lightblue' $prefix $lightblue,
-	'green' $prefix $green,
-	'red' $prefix $red,
-	'white' $prefix $white
+// Button type variations Map
+$buttons-type: (
+/*
+* key-name of the button: (1st value: bg-color, 2nd value: font-color, 3rd value: border-color,
+*                         from 4th value: values on hover&focus )
+*/
+primary-default:         ($black, $white , $black,
+				                  $dark-blue, $white, $dark-blue),
+primary-outline:         ($transparent, $black, $black,
+				                  $black, $white, $black),
+secondary-default:       ($white, $black, $white,
+				                  $dark-red, $white, $dark-red),
+secondary-outline:       ($transparent, $white, $white,
+				                  $white, $black, $white),
+);
+
+// Themes Variations Array
+$themes: (
+// TODO: set-up differents theme
 );

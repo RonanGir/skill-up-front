@@ -1,105 +1,45 @@
 // ------------------------------
-//  BUTTON MIXIN
+//  Mixin for buttons
 // ------------------------------
-@mixin button($button-color: $red, $button-type: '', $button-border: '', $button-size: '') {
-	// Standard Button Styles
-	@include border-radius;
-	@include transition;
-	display: inline-block;
-	border: 2px solid $button-color;
-	padding: 10px 30px 8px;
-	color: $button-color;
-	text-decoration: none;
-	text-transform: uppercase;
-	font-weight: bold;
-	// Button Hover Styles
-	&:hover {
-		border-color: $black;
-		color: $black;
-	}
-	// Foreach Loop
-	// Using the Color Variations in _variables.scss
-	@each $i in $color-list {
-		$alt-color: nth($i, 3);
-		&.#{nth($i, 2)}-#{nth($i, 1)} {
-			color: $alt-color;
-			border-color: $alt-color;
-			&:hover {
-				border-color: $black;
-				color: $black;
+@mixin button {
+	// For each button:
+	@each $class-key-name, $color-of-keys-value in $buttons-type {
+   
+		// Declare the variables to match the key values
+		$bgcolor: nth($color-of-keys-value, 1); //nth(), is a SASS function to get the read the value from its index in the key array
+		$fontcolor: nth($color-of-keys-value, 2);
+		$bordercolor: nth($color-of-keys-value, 3);
+		$bgcolor-hover: nth($color-of-keys-value, 4);
+		$fontcolor-hover: nth($color-of-keys-value, 5);
+		$bordercolor-hover: nth($color-of-keys-value, 6);
+
+		//use the class from the map key-name to match to class name into the index
+		&__#{$class-key-name} {
+			background-color: $bgcolor;
+			color: $fontcolor;
+			border: 0.2rem solid $bordercolor;
+
+			// Basic button styles
+			border-radius: $buttons-border-radius;
+			transition: $buttons-transition;
+			display: inline-block;
+			vertical-align: middle;
+			text-align: center;
+			margin: 0 2rem 1rem 0;
+			padding: 1rem 3rem;
+			text-decoration: none;
+			font-family: $font-secondary;
+			font-weight: 600;
+			min-width: 16rem;
+			min-height: 2rem;
+			letter-spacing: .2rem;
+
+			&:hover,
+			&:focus {
+				background-color: $bgcolor-hover;
+				color: $fontcolor-hover;
+				border-color: $bordercolor-hover;
 			}
 		}
 	}
-
-	// Button Size (small or normal (or no value) )
-	@if $button-size == small {
-		@include font-size(13);
-		padding: 6px 30px 3px;
-	} @else {
-		&.button-small {
-			font-size: 13px;
-			padding: 6px 30px 3px;
-		}
-	}
-
-	// Button Fill
-	// solid: color is the filled background color w/white text
-	// normal or no value: color is the border & text color
-	@if $button-type == solid {
-		background: $button-color;
-		color: $light;
-		@if $button-color == $light {
-			color: $dark !important;
-		}
-		&:hover {
-			border-color: $dark;
-			background: $dark;
-			color: $light;
-		}
-	} @else {
-		&.button-solid {
-			background: $button-color;
-			color: $white;
-			@each $i in $color-list {
-				$alt-color: nth($i, 3);
-				&.#{nth($i, 2)}-#{nth($i, 1)} {
-					background: $alt-color;
-					@if $alt-color == $white {
-						color: $black;
-					}
-				}
-			}
-			&:hover {
-				border-color: $black;
-				background: $black;
-				color: $white;
-			}
-		}
-	}
-
-	// Button Border
-	// bordered: border is white
-	// normal or no value: border is colored
-	@if $button-border == bordered {
-		border-color: $white !important;
-		&:hover {
-			border-color: $black;
-		}
-	} @else {
-		&.button-bordered { border-color: $white !important; }
-	}
-}
-
-// ------------------------------
-//  BORDER RADIUS (BUTTONS)
-// ------------------------------
-@mixin border-radius {
-    border-radius: 50%;
-};
-
-// ------------------------------
-//  ANIMATION (BUTTONS)
-// ------------------------------
-@mixin transition {
-    transition: .3s ease-in-out;
 }

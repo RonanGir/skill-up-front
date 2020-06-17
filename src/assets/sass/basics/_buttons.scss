@@ -1,4 +1,4 @@
 // Declare your default button
-.button {
-	@include button($red, normal, normal, normal);
+.btn {
+	@include button;
 }
