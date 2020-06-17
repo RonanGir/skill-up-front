@@ -1,5 +1,34 @@
 .skillup-app-theme {
-    //TODO: to remove or set officials after tests
-    padding: 5%;
-    background-color: $dark-red;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
+
+html {
+    // initialize 1rem to 10px instead of 1rem=16px
+    font-size: 62,5%;
+    letter-spacing: 62,5%;
+    word-spacing: 62,5%;
+}
+
+body {
+    //basics accessibility set up from _su-variables
+    font-size: $font-size-basic;
+    line-height: $line-height-basic;
+    word-spacing: $word-spacing-basic;
+}
+
+p + p {
+    //basic accessibility set up
+    margin-top: 3.2rem; //normally use 2rem (= 2x 16px)
+}
+
+footer {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    content: '';
+    bottom: 0;
+    display: contents;
 }

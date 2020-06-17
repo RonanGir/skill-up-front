@@ -43,3 +43,44 @@
 		}
 	}
 }
+
+// ------------------------------
+//  Mixin for themes
+// ------------------------------
+@mixin themes {
+	// For each themes:
+	@each $class-key-name, $color-of-keys-value in $themes {
+		$bg-pagecolor: nth($color-of-keys-value, 1);
+		$bg-1stElement: nth($color-of-keys-value, 2);
+		$bg-2ndElement: nth($color-of-keys-value, 3);
+
+		&__#{$class-key-name} {
+			padding-top: 10%;
+			height: 100%;
+			background-color: $bg-pagecolor;
+
+			//wave theme who depends of the theme
+			.wave {
+				&--back {
+					@include waves(0, $bg-1stElement);
+				}
+				&--front {
+					@include waves(1, $bg-2ndElement);
+				}
+			}
+		}
+	}
+}
+
+// ------------------------------
+//  Mixin for waves (in welcome.component, who depends of the theme)
+// ------------------------------
+@mixin waves ($waves_z-index, $path-color) {
+	position: absolute;
+	z-index: $waves_z-index;
+	display: block;
+	bottom: 0;
+	path {
+		fill: $path-color;
+	}
+}

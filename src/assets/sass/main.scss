@@ -1,12 +1,28 @@
 @import './../../../node_modules/@angular/material/theming';
 
 // imports for other components in your app.
+
+//============================
+// utils
+//============================
 @import './utils/su-mixins';
 @import './utils/su-variables';
 
+//============================
+// basics
+//============================
 @import './basics/fonts';
 @import './basics/buttons';
 @import './basics/general';
+@import './basics/theme';
+
+//============================
+// components
+//============================
+// welcome/
+
+
+
 
 
 
