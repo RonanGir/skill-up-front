@@ -50,12 +50,12 @@ secondary-outline:       ($transparent, $white, $white,
 $themes: (
 /*
  * key-name of the theme__: 
- * 1st value: bg-pagecolor, 
- * 2nd value: bg-1stElement (frontground element bg-color), 
- * if 3rd value: $bg-2ndElement (background element bg-color),                     
+ * 1st value: $bg-pagecolor, 
+ * 2nd value: $color-1stElement (frontground element bg-color), 
+ * if 3rd value: $color-2ndElement (background element bg-color),                     
  */
-light-blue: 		($light-blue, $light-red, $dark-red),
-light-red: 	($light-red, $light-blue, $dark-blue),
-dark-blue: 			($dark-blue, $light-red, $light-blue),
-dark-red: 			($dark-red, $light-blue, $light-red),
+light-blue: 		($light-blue, $light-red, $dark-red, $dark-blue),
+light-red: 			($light-red, $light-blue, $dark-blue, $dark-red),
+dark-blue: 			($dark-blue, $light-red, $light-blue, $dark-red),
+dark-red: 			($dark-red, $light-blue, $light-red, $dark-blue),
 );
