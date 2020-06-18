@@ -6,12 +6,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { WelcomeComponent } from './welcome/welcome/welcome.component';
+import { WelcomeComponent } from './welcomes/welcome/welcome.component';
+import { LoginComponent } from './welcomes/login/login.component';
+import { WelcomesModule } from './welcomes/welcomes.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,6 +27,7 @@ import { WelcomeComponent } from './welcome/welcome/welcome.component';
       //TODO: create a 404 error page
       { path: '**', redirectTo: 'welcome', pathMatch: 'full'},
     ]),
+    WelcomesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

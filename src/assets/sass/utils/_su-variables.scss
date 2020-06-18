@@ -59,3 +59,24 @@ light-red: 			($light-red, $light-blue, $dark-blue, $dark-red),
 dark-blue: 			($dark-blue, $light-red, $light-blue, $dark-red),
 dark-red: 			($dark-red, $light-blue, $light-red, $dark-blue),
 );
+
+
+//----------------------------
+// MEDIA QUERIES
+//----------------------------
+  $scr-xs: 'screen and (max-width:575px)';
+  $scr-sm: 'screen and (min-width:576px) and (max-width:767px)';
+  $scr-md: 'screen and (min-width:768px) and (max-width:991px)';
+  $scr-lg: 'screen and (min-width:992px) and (max-width:1199px)';
+  $scr-xl: 'screen and (min-width:1200px)';
+   
+  $scr-xs-sm: 'screen and (max-width:767px)';
+  $scr-xs-md: 'screen and (max-width:991px)';
+  $scr-sm-md: 'screen and (min-width:576px) and (max-width:991px)';
+  $scr-md-lg: 'screen and (min-width:768px) and (max-width:1199px)';
+  $scr-md-xl: 'screen and (min-width:768px)';
+  $scr-lg-xl: 'screen and (min-width:992px)';
+   
+  $scr-not-xs: 'screen and (min-width:576px)';
+  $scr-not-xl: 'screen and (max-width:1199px)';
+   

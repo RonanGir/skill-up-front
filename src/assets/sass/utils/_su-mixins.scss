@@ -25,11 +25,11 @@
 			display: inline-block;
 			vertical-align: middle;
 			text-align: center;
-			margin: 0 2rem 1rem 0;
-			padding: 1rem 3rem;
+			margin: 0 2rem 1rem;
+			padding: 0.5rem 3rem;
 			text-decoration: none;
 			font-family: $font-secondary;
-			font-weight: 600;
+			font-weight: 500;
 			min-width: 16rem;
 			min-height: 2rem;
 			letter-spacing: .2rem;
@@ -56,7 +56,6 @@
 		$color-3rdElement: nth($color-of-keys-value, 4);
 
 		&__#{$class-key-name} {
-			padding-top: 10%;
 			height: 100%;
 			background-color: $bg-pagecolor;
 
@@ -68,10 +67,15 @@
 				&--front {
 					@include waves(1, $color-2ndElement);
 				}
+				&--down {
+					@include waves(0, $color-3rdElement);
+					position: relative;
+					top: -0.1rem;
+				}
 			}
 
 			// arrows indicator to scroll down
-			@keyframes animate {
+			@keyframes arrows-animation {
 				0% {
 					color: $bg-pagecolor;
 					transform: translateY(0);
@@ -104,7 +108,7 @@
 				top: 60%;
 
 				span {
-					animation: animate 2.3s linear infinite;
+					animation: arrows-animation 2.3s linear infinite;
 					position: absolute;
 					color: $bg-pagecolor;
 					z-index: 3;
