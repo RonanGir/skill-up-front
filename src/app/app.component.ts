@@ -17,7 +17,6 @@ export class AppComponent {
   dashboard: Dashboard;
   dashboards: Dashboard[];
 
-
   constructor(private http: HttpClient) {
   }
 
