@@ -1,0 +1,15 @@
+{
+    // https://code.visualstudio.com/docs/getstarted/tips-and-tricks
+    "workbench.editor.highlightModifiedTabs": true,
+    //"files.autoSave": "afterDelay", // off, onFocusChange, onWindowChange
+    "explorer.sortOrder": "type",
+    "editor.cursorStyle": "line",
+    "editor.cursorBlinking": "smooth",
+    "files.trimFinalNewlines": true, // remove extra blank lines at the end of the file
+    "files.trimTrailingWhitespace": true,
+    "files.exclude": {
+        "node_modules": true
+      },
+      "search.showLineNumbers": true,
+      "search.sortOrder": "type",
+}

@@ -68,7 +68,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "skill-up-front:build"
+            "browserTarget": "skill-up-front:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {

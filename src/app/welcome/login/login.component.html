@@ -1,5 +1,21 @@
+
+
 <section class="theme__dark-red">
-    <form class="login">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <label for="email">Email : </label>
+        <input id="email" type="text" formControlName="email">
+        <label for="password">Mot de passe : </label>
+        <input id="password" type="password" formControlName="password">
+        <button type="submit">Se connecter</button>
+    </form>
+    <p *ngIf="!f.email.valid && f.email.touched && f.email?.errors.required">Email requis</p>
+    <p *ngIf="!f.email.valid && f.email.touched && f.email?.errors.email">Mauvais format d'email</p>
+    <p *ngIf="!f.password.valid && f.password.touched && f.password?.errors.required">Mot de passe requis</p>
+
+
+    <p>ronangir@skillup.io</p>
+    <p>pwd_123456</p>
+    <!-- <form class="login">
         <div class="card-body">
             <div class="row">
                 <legend>Pour continuer, connecte toi à SkillUp</legend>
@@ -17,12 +33,12 @@
                 <input name="password" type="text" placeholder="mot de passe">
             </div>
         </div>
-    </form>
+    </form> -->
 
-    <form class="login-form">
+    <!-- <form class="login-form">
         <mat-form-field class="example-full-width">
           <mat-label class="visuallyHidden">Adresse email ou nom d'utilisateur</mat-label>
-          
+
           <input matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
                  placeholder="Ex. pat@example.com">
           <mat-hint>Champs requis !</mat-hint>
@@ -33,5 +49,5 @@
             Email is <strong>required</strong>
           </mat-error>
         </mat-form-field>
-      </form>
+      </form> -->
 </section>

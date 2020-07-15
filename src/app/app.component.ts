@@ -1,55 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { environment } from '../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { User } from './model/user';
 import { Dashboard } from './model/dashboard';
+import { AuthService } from './service/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'skill-up-front';
-  apiUrl = environment.apiUrl;
-  response = '';
-  users: User[];
-  dashboard: Dashboard;
-  dashboards: Dashboard[];
+export class AppComponent implements OnInit {
 
-  constructor(private http: HttpClient) {
-  }
+  authSubscription: Subscription;
+  isAuth: boolean;
 
-  onReset() {
-    this.response = '';
-    this.users = [];
-  }
+  constructor(private auth: AuthService) {}
 
-  onTestBack() {
-    this.http.get(this.apiUrl + '/hello', {responseType: 'text'}).subscribe(
-      (greeting: string) => {
-        this.response = greeting;
-      },
-      (error) => {
-        this.response = error.message;
+  ngOnInit(): void {
+    this.auth.authenticated$.subscribe(
+      (auth: boolean) => {
+        console.log(auth);
+        this.isAuth = auth;
       }
     );
   }
 
-  onGetUsers() {
-    this.http.get(this.apiUrl + '/users').subscribe(
-      (users: User[]) => {
-        this.users = users;
-      }
-    );
+  onLogout() {
+    this.auth.onLogout();
   }
 
-  onGetUserBoard(user: User) {
-    this.http.post(this.apiUrl + '/user/board', user).subscribe(
-      (dashboard: Dashboard) => {
-        this.dashboard = dashboard;
-
-      }
-    );
-  }
 }

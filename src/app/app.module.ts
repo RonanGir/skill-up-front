@@ -1,35 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-// import { AppRoutingModule } from './app-routing.module' => is not necessary since RouterModule from @angular/core does it;
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
-import { WelcomeComponent } from './welcomes/welcome/welcome.component';
-import { LoginComponent } from './welcomes/login/login.component';
-import { WelcomesModule } from './welcomes/welcomes.module';
+import { HomeComponent } from './component/home/home.component';
+import { XhrInterceptor } from './xhrInterceptor';
+import { AuthService } from './service/auth.service';
+import { StorageService } from './service/storage.service';
+import { CookieService } from 'ngx-cookie-service';
+import { WelcomeModule } from './welcome/welcome.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent,
-    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    // AppRoutingModule, => is not necessary since RouterModule from @angular/core does it
+    AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot([
-      { path: 'welcome', component: WelcomeComponent },
-      { path: '', redirectTo: 'welcome', pathMatch: 'full'},
-      //TODO: create a 404 error page
-      { path: '**', redirectTo: 'welcome', pathMatch: 'full'},
-    ]),
-    WelcomesModule
+    WelcomeModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    StorageService,
+    CookieService,
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,10 +1,10 @@
-<!-- <button class="btn__primary-default" (click)="onGetUsers()">get users</button>
-<ul *ngFor="let user of users">
-    <li>{{user.username}}</li>
-</ul>
-<div *ngIf=" users != null && users.length > 0">
-    <button (click)="onGetUserBoard(users[0])">get {{users[0].username}}'s dashboard</button>
-    <p *ngIf=" dashboard != null">This dashboard is owned by {{ dashboard.user.username}}</p>
-</div>
-<button class="btn__secondary-default" (click)="onReset()">reset</button> -->
+<header>
+    <nav>
+        <ul>
+            <li *ngIf="isAuth"><a routerLinkActive="active" routerLink="/home">Home</a></li>
+            <li *ngIf="isAuth"><a (click)="onLogout()">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+
 <router-outlet></router-outlet>
