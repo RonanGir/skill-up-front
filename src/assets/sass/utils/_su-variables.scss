@@ -1,31 +1,82 @@
-//============================
+//----------------------------
 // variables
-//============================
+//----------------------------
 
 // Fonts
 $font-primary:      'Space Mono';
 $font-secondary:    'Montserrat';
 
+// Basic accessibility
+$font-size-basic:     		1.6rem;
+$line-height-basic:   		1.5;
+$letter-spacing-basic:      .192rem;
+$word-spacing-basic:        .256rem;
 
 // Alternate Colors
-$gold		    : rgb(234, 170, 0);
-$purple		  : rgb(149, 149, 210);
-$blue		    : rgb(7, 114, 206);
-$lightblue	: rgb(65, 182, 230);
-$green		  : rgb(100, 167, 11);
-$red		    : rgb(218, 41, 28);
-$black		  : rgb(0, 0, 0);
-$white		  : rgb(255, 255, 255);
+$light-blue                 : #C9E2EF;
+$dark-blue                  : #2673B8;
+$light-red                  : #F1B7B9;
+$dark-red                   : #EB4B33;
+$green                      : #96CA53;
+$red                        : #DA291C;
+$black                      : #000000;
+$white                      : #ffffff;
+$transparent                : #ffffff00;
 
+// Buttons Variables
+$buttons-border-radius:   50rem;
+$buttons-transition:      .3s ease-in-out;
 
-// Color Variations Array
-$prefix: color;
-$color-list: (
-	'gold' $prefix $gold,
-	'purple' $prefix $purple,
-	'blue' $prefix $blue,
-	'lightblue' $prefix $lightblue,
-	'green' $prefix $green,
-	'red' $prefix $red,
-	'white' $prefix $white
+// Button type variations Map
+$buttons-type: (
+/*
+ * key-name of the button: 
+ * 1st value: bg-color, 
+ * 2nd value: font-color, 
+ * 3rd value: border-color,
+ * from 4th value: values on hover&focus )
+ */
+primary-default:         ($black, $white , $black,
+				                  $dark-blue, $white, $dark-blue),
+primary-outline:         ($transparent, $black, $black,
+				                  $black, $white, $black),
+secondary-default:       ($white, $black, $white,
+				                  $dark-red, $white, $dark-red),
+secondary-outline:       ($transparent, $white, $white,
+				                  $white, $black, $white),
 );
+
+// Themes Variations Array
+$themes: (
+/*
+ * key-name of the theme__: 
+ * 1st value: $bg-pagecolor, 
+ * 2nd value: $color-1stElement (frontground element bg-color), 
+ * if 3rd value: $color-2ndElement (background element bg-color),                     
+ */
+light-blue: 		($light-blue, $light-red, $dark-red, $dark-blue),
+light-red: 			($light-red, $light-blue, $dark-blue, $dark-red),
+dark-blue: 			($dark-blue, $light-red, $light-blue, $dark-red),
+dark-red: 			($dark-red, $light-blue, $light-red, $dark-blue),
+);
+
+
+//----------------------------
+// MEDIA QUERIES
+//----------------------------
+  $scr-xs: 'screen and (max-width:575px)';
+  $scr-sm: 'screen and (min-width:576px) and (max-width:767px)';
+  $scr-md: 'screen and (min-width:768px) and (max-width:991px)';
+  $scr-lg: 'screen and (min-width:992px) and (max-width:1199px)';
+  $scr-xl: 'screen and (min-width:1200px)';
+   
+  $scr-xs-sm: 'screen and (max-width:767px)';
+  $scr-xs-md: 'screen and (max-width:991px)';
+  $scr-sm-md: 'screen and (min-width:576px) and (max-width:991px)';
+  $scr-md-lg: 'screen and (min-width:768px) and (max-width:1199px)';
+  $scr-md-xl: 'screen and (min-width:768px)';
+  $scr-lg-xl: 'screen and (min-width:992px)';
+   
+  $scr-not-xs: 'screen and (min-width:576px)';
+  $scr-not-xl: 'screen and (max-width:1199px)';
+   

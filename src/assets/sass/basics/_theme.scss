@@ -1,0 +1,105 @@
+// ------------------------------
+//  Mixin for waves (in welcome.component, who depends of the theme)
+// ------------------------------
+@mixin waves ($waves_z-index, $path-color) {
+	position: absolute;
+	z-index: $waves_z-index;
+	display: block;
+	bottom: 0;
+	path {
+		fill: $path-color;
+	}
+}
+
+// ------------------------------
+//  Mixin for themes
+// ------------------------------
+@mixin themes {
+	// For each themes:
+	@each $class-key-name, $color-of-keys-value in $themes {
+		$bg-pagecolor: nth($color-of-keys-value, 1);
+		$color-1stElement: nth($color-of-keys-value, 2);
+		$color-2ndElement: nth($color-of-keys-value, 3);
+		$color-3rdElement: nth($color-of-keys-value, 4);
+
+		&__#{$class-key-name} {
+			height: 100%;
+			background-color: $bg-pagecolor;
+
+			//wave theme who depends of the theme
+			.wave {
+				&--back {
+					@include waves(0, $color-1stElement);
+				}
+				&--front {
+					@include waves(1, $color-2ndElement);
+				}
+				&--down {
+					@include waves(0, $color-3rdElement);
+					position: relative;
+					top: -0.1rem;
+				}
+			}
+
+			// arrows indicator to scroll down
+			@keyframes arrows-animation {
+				0% {
+					color: $bg-pagecolor;
+					transform: translateY(0);
+				}
+				20% {
+					color: $bg-pagecolor;
+					transform: translateY(.5rem);
+				}
+				50% {
+					color: $color-1stElement;
+				}
+				70% {
+					color: $color-3rdElement;
+					transform: translateY(1rem);	
+				}
+				100% {
+					color: $bg-pagecolor;
+					transform: translateY(0);
+				}
+			}
+
+			.indicator {
+				position: relative;
+				display: flex;
+				flex-wrap: wrap;
+				flex-direction: column;
+				justify-content: flex-end;
+				align-content: center;
+				align-items: center;
+				height: 20%;
+				top: 60%;
+
+				span {
+					animation: arrows-animation 2.3s linear infinite;
+					position: absolute;
+					color: $bg-pagecolor;
+					z-index: 3;
+					display: flex;
+	
+					&:nth-child(1){
+						bottom: 2.3rem;
+						animation-delay: 0s;
+					}
+					&:nth-child(2){
+						bottom: 1rem;
+						animation-delay: 0.2s;
+					}
+				}
+			} 
+		}
+	}
+}
+
+
+//themes
+//_______________________________________________
+
+.theme {
+    @include themes;
+}

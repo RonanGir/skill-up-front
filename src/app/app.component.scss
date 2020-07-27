@@ -1,6 +1,6 @@
-//============================
+//----------------------------
 // Space Mono font
-//============================
+//----------------------------
 /* space-mono-regular - latin */
 @font-face {
     font-family: 'Space Mono';
@@ -30,9 +30,9 @@
     src: url('../assets/fonts/space-mono-v5-latin-700italic.woff2') format('woff2'), url('../assets/fonts/space-mono-v5-latin-700italic.woff') format('woff'), url('../assets/fonts/space-mono-v5-latin-700italic.ttf') format('truetype');
 }
 
-//============================
+//----------------------------
 // Montserra font
-//============================
+//----------------------------
 /* montserrat-300 - latin */
 @font-face {
     font-family: 'Montserrat';
@@ -88,4 +88,31 @@
     font-style: italic;
     font-weight: 700;
     src: url('../assets/fonts/montserrat-v14-latin-700italic.woff2') format('woff2'), url('../assets/fonts/montserrat-v14-latin-700italic.woff') format('woff'), url('../assets/fonts/montserrat-v14-latin-700italic.ttf') format('truetype'); 
+}
+
+//----------------------------
+// Material font icon
+//----------------------------
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/MaterialIcons-Regular.eot'); /* For IE6-8 */
+    src: local('Material Icons'),
+      local('MaterialIcons-Regular'),
+      url('../assets/fonts/MaterialIcons-Regular.woff2') format('woff2'),
+      url('../assets/fonts/MaterialIcons-Regular.woff') format('woff'),
+      url('../assets/fonts/MaterialIcons-Regular.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Material Icons Round';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/Material-Icons-Round.eot'); /* For IE6-8 */
+    src: local('Material-Icons-Round'),
+    url('../assets/fonts/Material-Icons-Round.woff2') format('woff2'),
+    url('../assets/fonts/Material-Icons-Round.woff') format('woff'),
+    url('../assets/fonts/Material-Icons-Round.svg') format('svg'),
+    url('../assets/fonts/Material-Icons-Round.ttf') format('truetype');
 }

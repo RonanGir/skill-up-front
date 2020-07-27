@@ -1,4 +1,52 @@
+// ------------------------------
+//  Mixin for buttons
+// ------------------------------
+@mixin button {
+	// For each button:
+	@each $class-key-name, $color-of-keys-value in $buttons-type {
+   
+		// Declare the variables to match the key values
+		$bgcolor: nth($color-of-keys-value, 1); //nth(), is a SASS function to get the read the value from its index in the key array
+		$fontcolor: nth($color-of-keys-value, 2);
+		$bordercolor: nth($color-of-keys-value, 3);
+		$bgcolor-hover: nth($color-of-keys-value, 4);
+		$fontcolor-hover: nth($color-of-keys-value, 5);
+		$bordercolor-hover: nth($color-of-keys-value, 6);
+
+		//use the class from the map key-name to match to class name into the index
+		&__#{$class-key-name} {
+			background-color: $bgcolor;
+			color: $fontcolor;
+			border: 0.2rem solid $bordercolor;
+
+			// Basic button styles
+			border-radius: $buttons-border-radius;
+			transition: $buttons-transition;
+			display: inline-block;
+			vertical-align: middle;
+			text-align: center;
+			margin: 0 2rem 1rem;
+			padding: 0.5rem 3rem;
+			text-decoration: none;
+			font-family: $font-secondary;
+			font-weight: 500;
+			min-width: 16rem;
+			min-height: 2rem;
+			letter-spacing: .2rem;
+
+			&:hover,
+			&:focus {
+				background-color: $bgcolor-hover;
+				color: $fontcolor-hover;
+				border-color: $bordercolor-hover;
+			}
+		}
+	}
+}
+
+
 // Declare your default button
-.button {
-	@include button($red, normal, normal, normal);
+//_____________________________________________
+.btn {
+	@include button;
 }
